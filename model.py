@@ -47,7 +47,7 @@ class ELM(object):
     self.H1_T = tf.transpose(self.H1)
 
     # beta analytic solution : self._beta_s (K x O)
-    if self._hidden_num < self._hidden_num: # L < K
+    if self._input_len < self._hidden_num: # L < K
       identity = tf.constant(np.identity(self._hidden_num), dtype=tf.float32)
       self._beta_s = tf.matmul(tf.matmul(tf.matrix_inverse(
         tf.matmul(self.H0_T, self.H0) + identity/omega), 
