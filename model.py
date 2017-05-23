@@ -63,7 +63,7 @@ class ELM(object):
     self._fx0 = tf.matmul(self.H0, self._beta)
     self._fx1 = tf.matmul(self.H1, self._beta)
 
-    self._cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(self._fx0, self._t0))
+    self._cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = self._fx0, labels=self._t0))
 
     self._init = False
     self._feed = False
